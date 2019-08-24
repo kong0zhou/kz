@@ -1,0 +1,125 @@
+ 
+<head>
+    <title></title>
+    <style type="text/css">
+        table
+        {
+            border-collapse: collapse;
+            margin: 0 auto;
+            text-align: center;
+        }
+        table td, table th
+        {
+            border: 1px solid #cad9ea;
+            color: #666;
+            height: 38px;
+        }
+        table thead th
+        {
+            background-color: #CCE8EB;
+        }
+        table tr:nth-child(odd)
+        {
+            background: #fff;
+        }
+        table tr:nth-child(even)
+        {
+            background: #F5FAFA;
+        }
+    </style>
+</head>
+<body>
+    <table width="50%" class="table">
+        <thead>
+            <tr>
+                <th>
+                    属性
+                </th>
+                <th>
+                    数据
+                </th>
+            </tr>
+        </thead>
+        <tr>
+            <td>
+                并发量
+            </td>
+            <td>
+                {{.Concurrency}}
+            </td>
+        </tr>
+        <tr>
+            <td>
+                测试总时长
+            </td>
+            <td>
+                {{.AllTime}}
+            </td>
+        </tr>
+        <tr>
+            <td>
+                前端平均响应时间
+            </td>
+            <td>
+                {{.FrontAveTime}}
+            </td>
+        </tr>
+        <tr>
+            <td>
+                后端平均响应时间
+            </td>
+            <td>
+                {{.BackAveTime}}
+            </td>
+        </tr>
+        <tr>
+            <td>
+                网络延迟
+            </td>
+            <td>
+                13
+            </td>
+        </tr>
+        <tr>
+            <td>
+                前端请求次数
+            </td>
+            <td>
+                {{.FrontFrequency}}
+            </td>
+        </tr>
+        <tr>
+            <td>
+                后端响应次数
+            </td>
+            <td>
+                {{.BackFrequency}}
+            </td>
+        </tr>
+        <tr>
+            <td>
+               失败次数
+            </td>
+            <td>
+                13
+            </td>
+        </tr>
+        <tr>
+            <td>
+               出现错误次数
+            </td>
+            <td>
+                13
+            </td>
+        </tr>
+        <tr>
+            <td>
+                后端吞吐量
+            </td>
+            <td>
+                {{.Throughput}} 次/min
+            </td>
+        </tr>
+    </table>
+</body>
+</html>

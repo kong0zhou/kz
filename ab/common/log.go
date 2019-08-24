@@ -24,7 +24,7 @@ func InitLogger() error {
 
 	logs.SetLogFuncCallDepth(3)    //调用层级
 	logs.EnableFuncCallDepth(true) //输出文件名和行号
-	logs.Async()                   //提升性能, 可以设置异步输出
+	// logs.Async()                   //提升性能, 可以设置异步输出
 
 	config := make(map[string]interface{})
 	config["filename"] = `./logs/log.log`
