@@ -85,6 +85,12 @@ func (t *Dispatch) Begin() (err error) {
 	for i := 0; i < t.Concurrency; i++ {
 		t.wg.Add(1)
 		go func() {
+			defer func() {
+				if err := recover(); err != nil {
+					logs.Error(err)
+					return
+				}
+			}()
 			defer t.wg.Done()
 			for {
 				var reply ReplyProto
@@ -135,33 +141,33 @@ func (t *Dispatch) Begin() (err error) {
 				}
 			}
 		}()
-		err = t.handle.Handle()
-		if err != nil {
-			logs.Error(err)
-			return
-		}
-		t.wg.Wait()
-		err = t.handle.CloseChan()
-		if err != nil {
-			logs.Error(err)
-			return
-		}
-		err = t.handle.LogPrint(500 * time.Millisecond)
-		if err != nil {
-			logs.Error(err)
-			return
-		}
-		t.handle.Wait()
-		err = t.handle.GenerateErrorCSV(`./error.csv`)
-		if err != nil {
-			logs.Error(err)
-			return
-		}
-		err = t.handle.GenerateResultMD(`./result.md`)
-		if err != nil {
-			logs.Error(err)
-			return
-		}
+	}
+	err = t.handle.Handle()
+	if err != nil {
+		logs.Error(err)
+		return
+	}
+	err = t.handle.LogPrint(500 * time.Millisecond)
+	if err != nil {
+		logs.Error(err)
+		return
+	}
+	t.wg.Wait()
+	err = t.handle.CloseChan()
+	if err != nil {
+		logs.Error(err)
+		return
+	}
+	t.handle.Wait()
+	err = t.handle.GenerateErrorCSV(`./error.csv`)
+	if err != nil {
+		logs.Error(err)
+		return
+	}
+	err = t.handle.GenerateResultMD(`./result.md`)
+	if err != nil {
+		logs.Error(err)
+		return
 	}
 	return
 }

@@ -192,7 +192,7 @@ func (t *HandleResult) GenerateErrorCSV(csvName string) (err error) {
 		logs.Error(err)
 		return err
 	}
-	if t.ErrorResult == nil || len(t.ErrorResult) == 0 {
+	if t.ErrorResult == nil {
 		err = fmt.Errorf(`t.ErrorResult is null`)
 		logs.Error(err)
 		return err
@@ -237,7 +237,7 @@ func (t *HandleResult) GetResult() (err error) {
 		logs.Error(err)
 		return
 	}
-	t.Throughput = float64(t.BackFrequency / int(t.AllTime))
+	t.Throughput = float64(t.BackFrequency) / t.AllTime.Minutes()
 	t.FailureFrequency = t.FrontFrequency - t.BackFrequency
 	t.NetworkDelay = t.FrontAveTime - t.BackAveTime
 	return nil
@@ -285,13 +285,15 @@ func (t *HandleResult) LogPrint(ti time.Duration) (err error) {
 		return err
 	}
 	go func() {
-		time.Sleep(ti)
-		logs.Info(`=========================`)
-		logs.Info(`前端检测次数`, t.FrontFrequency)
-		logs.Info(`前端平均检测时间`, time.Duration(int64(t.frontAllTime)/int64(t.FrontFrequency)))
-		logs.Info(`后端响应次数`, t.BackFrequency)
-		logs.Info(`后端平均检测时间`, time.Duration(int64(t.backAllTime)/int64(t.BackFrequency)))
-		logs.Info(`=========================`)
+		for {
+			time.Sleep(ti)
+			logs.Info(`=========================`)
+			logs.Info(`前端检测次数`, t.FrontFrequency)
+			logs.Info(`前端平均检测时间`, time.Duration(int64(t.frontAllTime)/int64(t.FrontFrequency)))
+			logs.Info(`后端响应次数`, t.BackFrequency)
+			logs.Info(`后端平均检测时间`, time.Duration(int64(t.backAllTime)/int64(t.BackFrequency)))
+			logs.Info(`=========================`)
+		}
 	}()
 	return nil
 }
