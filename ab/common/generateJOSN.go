@@ -32,13 +32,3 @@ func NewJSONData(n int) (*JOSNData, error) {
 	}()
 	return &jo, nil
 }
-
-func (t *JOSNData) GetJOSNData() (json string, err error) {
-	if t.Data == nil {
-		err = fmt.Errorf(`t.Data is null`)
-		logs.Error(err)
-		return "", err
-	}
-	json = <-t.Data
-	return json, nil
-}
