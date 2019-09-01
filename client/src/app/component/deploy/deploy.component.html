@@ -1,0 +1,199 @@
+<div class="left">
+
+    <mat-form-field class="example-full-width">
+        <input matInput placeholder="并发数" [formControl]="bfFormControl" (keyup)="onKeyInfo(bf.value,'bf')" #bf>
+        <mat-error *ngIf="bfFormControl.hasError('pattern') && !bfFormControl.hasError('required')">
+            请输入正确的并发数
+        </mat-error>
+        <mat-error *ngIf="bfFormControl.hasError('required')">
+            并发数不能为空
+        </mat-error>
+    </mat-form-field>
+
+    <mat-form-field class="example-full-width2">
+        <input matInput placeholder="持续时间" [formControl]="timeFormControl" (keyup)="onKeyInfo(time.value,'time')" #time>
+        <mat-error *ngIf="timeFormControl.hasError('pattern') && !timeFormControl.hasError('required')">
+            请输入正确的持续时间"
+        </mat-error>
+        <mat-error *ngIf="timeFormControl.hasError('required')">
+            持续时间"不能为空
+        </mat-error>
+    </mat-form-field>
+
+    <mat-form-field style="float:right;margin-right:30px;">
+        <mat-select [(value)]="timeUnit">
+            <mat-option value="小时">小时</mat-option>
+            <mat-option value="分钟">分钟</mat-option>
+            <mat-option value="秒">秒</mat-option>
+        </mat-select>
+    </mat-form-field>
+
+    <br><br>
+
+    <mat-form-field class="example-full-width">
+        <input matInput placeholder="目标URL" [formControl]="urlFormControl" (keyup)="onKeyInfo(url.value,'url')" #url>
+        <mat-error *ngIf="urlFormControl.hasError('required')">
+            url不能为空
+        </mat-error>
+        <!-- <mat-hint>Errors appear instantly!</mat-hint> -->
+    </mat-form-field>
+
+    <br><br>
+
+    <mat-form-field class="example-full-width">
+        <input matInput placeholder="请求携带数据(支持正则)"[formControl]="qDataFormControl" (keyup)="onKeyInfo(qData.value,'qData')" #qData>
+        <mat-error *ngIf="qDataFormControl.hasError('required')">
+            数据不能为空
+        </mat-error>
+        <!-- <mat-hint>Errors appear instantly!</mat-hint> -->
+    </mat-form-field>
+
+
+    <mat-form-field class="example-full-width">
+        <input matInput placeholder="导出结果文件路径"[formControl]="pathFormControl" (keyup)="onKeyInfo(path.value,'path')" #path>
+        <mat-error *ngIf="pathFormControl.hasError('required')">
+            数据不能为空
+        </mat-error>
+        <!-- <mat-hint>Errors appear instantly!</mat-hint> -->
+    </mat-form-field>
+
+    <br><br>
+    <mat-form-field>
+        <mat-label style="font-size:20px;">选择请求方法</mat-label>
+        <br>
+        <mat-select [(value)]="method">
+            <mat-option value="POST">POST</mat-option>
+            <mat-option value="PUT">PUT</mat-option>
+            <mat-option value="GET">GET</mat-option>
+        </mat-select>
+    </mat-form-field>
+
+    <br><br>
+    <div style="text-align:center;">
+        <button mat-flat-button color="primary" class="button" (click)="startUp()" [disabled]="
+        timeFormControl.hasError('required') ||
+        timeFormControl.hasError('pattern') ||
+        bfFormControl.hasError('pattern') ||
+        bfFormControl.hasError('required') ||
+        urlFormControl.hasError('required') ||
+        qDataFormControl.hasError('required') ||
+        pathFormControl.hasError('required')
+        ">启动</button>
+    </div>
+
+</div>
+
+<div class="mydiv">
+    sdgfkjsjkgsahbgbjksbgbvjkbasuigbhdkhskjfdhkjshdfhhkjhhjks
+    sdgfkjsjkgsahbgbjksbgbvjkbasuigbhdkhskjfdhkjshdfhhkjhhjks
+    sdgfkjsjkgsahbgbjksbgbvjkbasuigbhdkhskjfdhkjshdfhhkjhhjks
+    sdgfkjsjkgsahbgbjksbgbvjkbasuigbhdkhskjfdhkjshdfhhkjhhjks
+    sdgfkjsjkgsahbgbjksbgbvjkbasuigbhdkhskjfdhkjshdfhhkjhhjks
+    sdgfkjsjkgsahbgbjksbgbvjkbasuigbhdkhskjfdhkjshdfhhkjhhjks
+    sdgfkjsjkgsahbgbjksbgbvjkbasuigbhdkhskjfdhkjshdfhhkjhhjks
+    sdgfkjsjkgsahbgbjksbgbvjkbasuigbhdkhskjfdhkjshdfhhkjhhjks
+    sdgfkjsjkgsahbgbjksbgbvjkbasuigbhdkhskjfdhkjshdfhhkjhhjks
+    sdgfkjsjkgsahbgbjksbgbvjkbasuigbhdkhskjfdhkjshdfhhkjhhjks
+    sdgfkjsjkgsahbgbjksbgbvjkbasuigbhdkhskjfdhkjshdfhhkjhhjks
+    sdgfkjsjkgsahbgbjksbgbvjkbasuigbhdkhskjfdhkjshdfhhkjhhjks
+    sdgfkjsjkgsahbgbjksbgbvjkbasuigbhdkhskjfdhkjshdfhhkjhhjks
+    sdgfkjsjkgsahbgbjksbgbvjkbasuigbhdkhskjfdhkjshdfhhkjhhjks
+    sdgfkjsjkgsahbgbjksbgbvjkbasuigbhdkhskjfdhkjshdfhhkjhhjks
+    sdgfkjsjkgsahbgbjksbgbvjkbasuigbhdkhskjfdhkjshdfhhkjhhjks
+    sdgfkjsjkgsahbgbjksbgbvjkbasuigbhdkhskjfdhkjshdfhhkjhhjks
+    sdgfkjsjkgsahbgbjksbgbvjkbasuigbhdkhskjfdhkjshdfhhkjhhjks
+    sdgfkjsjkgsahbgbjksbgbvjkbasuigbhdkhskjfdhkjshdfhhkjhhjks
+    sdgfkjsjkgsahbgbjksbgbvjkbasuigbhdkhskjfdhkjshdfhhkjhhjks
+    sdgfkjsjkgsahbgbjksbgbvjkbasuigbhdkhskjfdhkjshdfhhkjhhjks
+    sdgfkjsjkgsahbgbjksbgbvjkbasuigbhdkhskjfdhkjshdfhhkjhhjks
+    sdgfkjsjkgsahbgbjksbgbvjkbasuigbhdkhskjfdhkjshdfhhkjhhjks
+    sdgfkjsjkgsahbgbjksbgbvjkbasuigbhdkhskjfdhkjshdfhhkjhhjks
+    sdgfkjsjkgsahbgbjksbgbvjkbasuigbhdkhskjfdhkjshdfhhkjhhjks
+    sdgfkjsjkgsahbgbjksbgbvjkbasuigbhdkhskjfdhkjshdfhhkjhhjks
+    sdgfkjsjkgsahbgbjksbgbvjkbasuigbhdkhskjfdhkjshdfhhkjhhjks
+    sdgfkjsjkgsahbgbjksbgbvjkbasuigbhdkhskjfdhkjshdfhhkjhhjks
+    sdgfkjsjkgsahbgbjksbgbvjkbasuigbhdkhskjfdhkjshdfhhkjhhjks
+    sdgfkjsjkgsahbgbjksbgbvjkbasuigbhdkhskjfdhkjshdfhhkjhhjks
+    sdgfkjsjkgsahbgbjksbgbvjkbasuigbhdkhskjfdhkjshdfhhkjhhjks
+    sdgfkjsjkgsahbgbjksbgbvjkbasuigbhdkhskjfdhkjshdfhhkjhhjks
+    sdgfkjsjkgsahbgbjksbgbvjkbasuigbhdkhskjfdhkjshdfhhkjhhjks
+    sdgfkjsjkgsahbgbjksbgbvjkbasuigbhdkhskjfdhkjshdfhhkjhhjks
+    sdgfkjsjkgsahbgbjksbgbvjkbasuigbhdkhskjfdhkjshdfhhkjhhjks
+    sdgfkjsjkgsahbgbjksbgbvjkbasuigbhdkhskjfdhkjshdfhhkjhhjks
+    sdgfkjsjkgsahbgbjksbgbvjkbasuigbhdkhskjfdhkjshdfhhkjhhjks
+    sdgfkjsjkgsahbgbjksbgbvjkbasuigbhdkhskjfdhkjshdfhhkjhhjks
+    sdgfkjsjkgsahbgbjksbgbvjkbasuigbhdkhskjfdhkjshdfhhkjhhjks
+    sdgfkjsjkgsahbgbjksbgbvjkbasuigbhdkhskjfdhkjshdfhhkjhhjks
+    sdgfkjsjkgsahbgbjksbgbvjkbasuigbhdkhskjfdhkjshdfhhkjhhjks
+    sdgfkjsjkgsahbgbjksbgbvjkbasuigbhdkhskjfdhkjshdfhhkjhhjks
+    sdgfkjsjkgsahbgbjksbgbvjkbasuigbhdkhskjfdhkjshdfhhkjhhjks
+    sdgfkjsjkgsahbgbjksbgbvjkbasuigbhdkhskjfdhkjshdfhhkjhhjks
+    sdgfkjsjkgsahbgbjksbgbvjkbasuigbhdkhskjfdhkjshdfhhkjhhjks
+    sdgfkjsjkgsahbgbjksbgbvjkbasuigbhdkhskjfdhkjshdfhhkjhhjks
+    sdgfkjsjkgsahbgbjksbgbvjkbasuigbhdkhskjfdhkjshdfhhkjhhjks
+    sdgfkjsjkgsahbgbjksbgbvjkbasuigbhdkhskjfdhkjshdfhhkjhhjks
+    sdgfkjsjkgsahbgbjksbgbvjkbasuigbhdkhskjfdhkjshdfhhkjhhjks
+    sdgfkjsjkgsahbgbjksbgbvjkbasuigbhdkhskjfdhkjshdfhhkjhhjks
+    sdgfkjsjkgsahbgbjksbgbvjkbasuigbhdkhskjfdhkjshdfhhkjhhjks
+    sdgfkjsjkgsahbgbjksbgbvjkbasuigbhdkhskjfdhkjshdfhhkjhhjks
+    sdgfkjsjkgsahbgbjksbgbvjkbasuigbhdkhskjfdhkjshdfhhkjhhjks
+    sdgfkjsjkgsahbgbjksbgbvjkbasuigbhdkhskjfdhkjshdfhhkjhhjks
+    sdgfkjsjkgsahbgbjksbgbvjkbasuigbhdkhskjfdhkjshdfhhkjhhjks
+    sdgfkjsjkgsahbgbjksbgbvjkbasuigbhdkhskjfdhkjshdfhhkjhhjks
+    sdgfkjsjkgsahbgbjksbgbvjkbasuigbhdkhskjfdhkjshdfhhkjhhjks
+    sdgfkjsjkgsahbgbjksbgbvjkbasuigbhdkhskjfdhkjshdfhhkjhhjks
+    sdgfkjsjkgsahbgbjksbgbvjkbasuigbhdkhskjfdhkjshdfhhkjhhjks
+    sdgfkjsjkgsahbgbjksbgbvjkbasuigbhdkhskjfdhkjshdfhhkjhhjks
+    sdgfkjsjkgsahbgbjksbgbvjkbasuigbhdkhskjfdhkjshdfhhkjhhjks
+    sdgfkjsjkgsahbgbjksbgbvjkbasuigbhdkhskjfdhkjshdfhhkjhhjks
+    sdgfkjsjkgsahbgbjksbgbvjkbasuigbhdkhskjfdhkjshdfhhkjhhjks
+    sdgfkjsjkgsahbgbjksbgbvjkbasuigbhdkhskjfdhkjshdfhhkjhhjks
+    sdgfkjsjkgsahbgbjksbgbvjkbasuigbhdkhskjfdhkjshdfhhkjhhjks
+    sdgfkjsjkgsahbgbjksbgbvjkbasuigbhdkhskjfdhkjshdfhhkjhhjks
+    sdgfkjsjkgsahbgbjksbgbvjkbasuigbhdkhskjfdhkjshdfhhkjhhjks
+    sdgfkjsjkgsahbgbjksbgbvjkbasuigbhdkhskjfdhkjshdfhhkjhhjks
+    sdgfkjsjkgsahbgbjksbgbvjkbasuigbhdkhskjfdhkjshdfhhkjhhjks
+    sdgfkjsjkgsahbgbjksbgbvjkbasuigbhdkhskjfdhkjshdfhhkjhhjks
+    sdgfkjsjkgsahbgbjksbgbvjkbasuigbhdkhskjfdhkjshdfhhkjhhjks
+    sdgfkjsjkgsahbgbjksbgbvjkbasuigbhdkhskjfdhkjshdfhhkjhhjks
+    sdgfkjsjkgsahbgbjksbgbvjkbasuigbhdkhskjfdhkjshdfhhkjhhjks
+    sdgfkjsjkgsahbgbjksbgbvjkbasuigbhdkhskjfdhkjshdfhhkjhhjks
+    sdgfkjsjkgsahbgbjksbgbvjkbasuigbhdkhskjfdhkjshdfhhkjhhjks
+    sdgfkjsjkgsahbgbjksbgbvjkbasuigbhdkhskjfdhkjshdfhhkjhhjks
+    sdgfkjsjkgsahbgbjksbgbvjkbasuigbhdkhskjfdhkjshdfhhkjhhjks
+    sdgfkjsjkgsahbgbjksbgbvjkbasuigbhdkhskjfdhkjshdfhhkjhhjks
+    sdgfkjsjkgsahbgbjksbgbvjkbasuigbhdkhskjfdhkjshdfhhkjhhjks
+    sdgfkjsjkgsahbgbjksbgbvjkbasuigbhdkhskjfdhkjshdfhhkjhhjks
+    sdgfkjsjkgsahbgbjksbgbvjkbasuigbhdkhskjfdhkjshdfhhkjhhjks
+    sdgfkjsjkgsahbgbjksbgbvjkbasuigbhdkhskjfdhkjshdfhhkjhhjks
+    sdgfkjsjkgsahbgbjksbgbvjkbasuigbhdkhskjfdhkjshdfhhkjhhjks
+    sdgfkjsjkgsahbgbjksbgbvjkbasuigbhdkhskjfdhkjshdfhhkjhhjks
+    sdgfkjsjkgsahbgbjksbgbvjkbasuigbhdkhskjfdhkjshdfhhkjhhjks
+    sdgfkjsjkgsahbgbjksbgbvjkbasuigbhdkhskjfdhkjshdfhhkjhhjks
+    sdgfkjsjkgsahbgbjksbgbvjkbasuigbhdkhskjfdhkjshdfhhkjhhjks
+    sdgfkjsjkgsahbgbjksbgbvjkbasuigbhdkhskjfdhkjshdfhhkjhhjks
+    sdgfkjsjkgsahbgbjksbgbvjkbasuigbhdkhskjfdhkjshdfhhkjhhjks
+    sdgfkjsjkgsahbgbjksbgbvjkbasuigbhdkhskjfdhkjshdfhhkjhhjks
+    sdgfkjsjkgsahbgbjksbgbvjkbasuigbhdkhskjfdhkjshdfhhkjhhjks
+    sdgfkjsjkgsahbgbjksbgbvjkbasuigbhdkhskjfdhkjshdfhhkjhhjks
+    sdgfkjsjkgsahbgbjksbgbvjkbasuigbhdkhskjfdhkjshdfhhkjhhjks
+    sdgfkjsjkgsahbgbjksbgbvjkbasuigbhdkhskjfdhkjshdfhhkjhhjks
+    sdgfkjsjkgsahbgbjksbgbvjkbasuigbhdkhskjfdhkjshdfhhkjhhjks
+    sdgfkjsjkgsahbgbjksbgbvjkbasuigbhdkhskjfdhkjshdfhhkjhhjks
+    sdgfkjsjkgsahbgbjksbgbvjkbasuigbhdkhskjfdhkjshdfhhkjhhjks
+    sdgfkjsjkgsahbgbjksbgbvjkbasuigbhdkhskjfdhkjshdfhhkjhhjks
+    sdgfkjsjkgsahbgbjksbgbvjkbasuigbhdkhskjfdhkjshdfhhkjhhjks
+    sdgfkjsjkgsahbgbjksbgbvjkbasuigbhdkhskjfdhkjshdfhhkjhhjks
+    sdgfkjsjkgsahbgbjksbgbvjkbasuigbhdkhskjfdhkjshdfhhkjhhjks
+    sdgfkjsjkgsahbgbjksbgbvjkbasuigbhdkhskjfdhkjshdfhhkjhhjks
+    sdgfkjsjkgsahbgbjksbgbvjkbasuigbhdkhskjfdhkjshdfhhkjhhjks
+    sdgfkjsjkgsahbgbjksbgbvjkbasuigbhdkhskjfdhkjshdfhhkjhhjks
+    sdgfkjsjkgsahbgbjksbgbvjkbasuigbhdkhskjfdhkjshdfhhkjhhjks
+    sdgfkjsjkgsahbgbjksbgbvjkbasuigbhdkhskjfdhkjshdfhhkjhhjks
+    sdgfkjsjkgsahbgbjksbgbvjkbasuigbhdkhskjfdhkjshdfhhkjhhjks
+    sdgfkjsjkgsahbgbjksbgbvjkbasuigbhdkhskjfdhkjshdfhhkjhhjks
+    sdgfkjsjkgsahbgbjksbgbvjkbasuigbhdkhskjfdhkjshdfhhkjhhjks
+    sdgfkjsjkgsahbgbjksbgbvjkbasuigbhdkhskjfdhkjshdfhhkjhhjks
+    sdgfkjsjkgsahbgbjksbgbvjkbasuigbhdkhskjfdhkjshdfhhkjhhjks
+    sdgfkjsjkgsahbgbjksbgbvjkbasuigbhdkhskjfdhkjshdfhhkjhhjks
+</div>

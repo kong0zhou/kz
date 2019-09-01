@@ -1,0 +1,69 @@
+.example-full-width {
+    width: 100%;
+    font-size: 16px;
+}
+
+.example-full-width2 {
+    width: 50%;
+    font-size: 16px;
+}
+
+.left {
+    margin-top: 100px;
+    margin-left: 50px;
+    width:30%;
+    min-width: 430px;
+    border-radius:12px;
+    padding:20px;
+    background-color: rgb(255, 255, 255);
+    /* border:1px solid rgb(0, 0, 0); */
+}
+
+.button {
+    width: 270px;
+    height: 50px;
+    /* margin:0 auto; */
+    /* margin-left:auto;
+    margin-right:auto; */
+    margin: auto;
+}
+
+/* =============滚动条============ */
+
+.mydiv {
+    /* max-height: 910px; */
+    overflow: auto;
+    /* border:1px solid rgb(0, 0, 0); */
+    width:55%;
+    height:500px;
+    float:right;
+    margin-top:-570px;
+    padding:20px;
+    border-radius:12px;
+    margin-right:50px;
+    background-color:rgb(255, 255, 255);
+}
+
+.mydiv::-webkit-scrollbar {
+    width: 8px;
+    height: 8px;
+    background-color: #61B6EB;
+}
+
+.mydiv::-webkit-scrollbar-track {
+    background: #ffffff;
+    border-radius: 2px;
+}
+
+.mydiv::-webkit-scrollbar-thumb {
+    background: #61B6EB;
+    border-radius: 2px;
+}
+
+.mydiv::-webkit-scrollbar-thumb:hover {
+    background: #61B6EB;
+}
+
+.mydiv::-webkit-scrollbar-corner {
+    background: #61B6EB;
+}
