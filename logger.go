@@ -7,7 +7,6 @@ import (
 	"runtime"
 	"strings"
 
-	"github.com/astaxie/beego/logs"
 	"github.com/sirupsen/logrus"
 )
 
@@ -19,7 +18,7 @@ var log = Log
 func InitLogger() (err error) {
 	path, err := filepath.Abs(filepath.Dir(os.Args[0]))
 	if err != nil {
-		logs.Error(err)
+		fmt.Println(`initLogger error:`, err)
 		return
 	}
 
@@ -45,7 +44,7 @@ func InitLogger() (err error) {
 	if Config.Production {
 		err := os.MkdirAll("logs", 0755)
 		if err != nil {
-			logs.Error(err)
+			fmt.Println(`initLogger error:`, err)
 			return err
 		}
 		//   设置文件为日志输出

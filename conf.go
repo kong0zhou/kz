@@ -3,7 +3,6 @@ package kz
 import (
 	"fmt"
 
-	"github.com/astaxie/beego/logs"
 	"github.com/spf13/pflag"
 	"github.com/spf13/viper"
 )
@@ -47,7 +46,7 @@ func InitConf() (err error) {
 		v.SetConfigFile(configFile)
 	} else {
 		v.SetConfigFile(`./config.json`)
-		logs.Info("使用当前目录下的config.json为配置文件")
+		fmt.Println("使用当前目录下的config.json为配置文件")
 	}
 
 	err = v.ReadInConfig()
