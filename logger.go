@@ -37,7 +37,8 @@ func InitLogger() (err error) {
 				funcName = f.Function[funcIndex+1:]
 			}
 			filePath := strings.Replace(f.File, path, "", 1)
-			return fmt.Sprintf("%s()", funcName), fmt.Sprintf("%s:%d", filePath, f.Line)
+			filePath = filePath[1:]
+			return fmt.Sprintf("%s()", funcName), fmt.Sprintf(" %s:%d", filePath, f.Line)
 		},
 	})
 	//如果是生产环境
